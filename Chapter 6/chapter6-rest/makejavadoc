@@ -1,0 +1,3 @@
+file:///home/jament/workspace/chapter6-rest/target/classes/application.wadl
+
+mvn compile javadoc:javadoc com.sun.jersey.contribs:maven-wadl-plugin:generate

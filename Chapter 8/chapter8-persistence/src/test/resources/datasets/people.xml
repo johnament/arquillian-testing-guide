@@ -1,0 +1,4 @@
+<dataset>
+	<people id="1" firstName="Bob" lastName="Smith"/>
+	<people id="2" firstName="Jane" lastName="Smith"/>
+</dataset>

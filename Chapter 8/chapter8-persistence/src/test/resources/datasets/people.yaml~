@@ -1,0 +1,8 @@
+useraccount:
+  - id: 1
+    firstName: Bob
+    lastName: Smith
+  - id: 2
+    firstname: Jane
+    lastname: Smith
+

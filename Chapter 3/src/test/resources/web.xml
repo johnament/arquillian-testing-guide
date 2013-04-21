@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+      http://java.sun.com/xml/ns/javaee
+      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+   <!-- Weld Jetty/Tomcat specific configuration parameters -->
+   <!-- *** The <listener> and <resource-env-ref> elements can be deleted when running in a Java EE 6 container *** 
+   <listener>
+      <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+   </listener>
+-->
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.tad.arqdevguide.chp3.HelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+</web-app>

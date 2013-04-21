@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:application xmlns:ns2="http://wadl.dev.java.net/2009/02">
+	<ns2:doc jersey:generatedBy="Jersey: 1.16 11/28/2012 02:09 PM"
+		xmlns:jersey="http://jersey.java.net/" />
+	<ns2:doc title="The doc for your API" xml:lang="en"><![CDATA[
+This is a paragraph that is added to the start of the generated application.wadl
+]]></ns2:doc>
+	<ns2:grammars />
+	<ns2:resources base="http://hostname:8080/chapter6-rest">
+		<ns2:resource path="/convert">
+			<ns2:doc><![CDATA[The Class TemperatureConverter.
+ Converts from farenheit to celsius, and then celsius back to farenheit]]></ns2:doc>
+			<ns2:resource path="/farenheit/{far}">
+				<ns2:param name="far" style="template" type="xs:double"
+					xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<ns2:doc><![CDATA[the farenheit]]></ns2:doc>
+				</ns2:param>
+				<ns2:method id="convertToCelsius" name="GET">
+					<ns2:doc><![CDATA[Convert to celsius.]]></ns2:doc>
+					<ns2:response>
+						<ns2:representation mediaType="text/plain" />
+					</ns2:response>
+				</ns2:method>
+			</ns2:resource>
+			<ns2:resource path="/celsius/{cel}">
+				<ns2:param name="cel" style="template" type="xs:double"
+					xmlns:xs="http://www.w3.org/2001/XMLSchema">
+					<ns2:doc><![CDATA[the celsius]]></ns2:doc>
+				</ns2:param>
+				<ns2:method id="convertToFarenheit" name="GET">
+					<ns2:doc><![CDATA[Convert to farenheit.]]></ns2:doc>
+					<ns2:response>
+						<ns2:representation mediaType="text/plain" />
+					</ns2:response>
+				</ns2:method>
+			</ns2:resource>
+		</ns2:resource>
+	</ns2:resources>
+</ns2:application>

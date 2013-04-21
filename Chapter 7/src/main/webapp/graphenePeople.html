@@ -1,0 +1,85 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>People</title>
+<script src="jquery.js"></script>
+<script type="text/javascript">
+function clearAndReAddChildren(data) {
+	$("#peopleListCont").empty();
+	$("#peopleListCont").append($("<table id=\"peopleList\"></table>"));
+	$("#peopleList").append($("<tr><th>Name</th><th>Email</th><th>Edit</th></tr>"));
+	$.each(data, function(index) {
+		var item = data[index];
+		var html = "<tr><td>"+item.salutation+" "+item.firstName+" "+item.lastName+"</td><td>"+item.email+"</td><td><a class=\"edit\" href=\"javascript:;\" p=\""+item.personId+"\" id=\"edit"+item.personId+"\">Edit</a></td></tr>";			
+		$("#peopleList").append($(html));
+    });
+}
+function clear() {
+	$("#peopleListCont").empty();
+}
+function save() {
+	var sal = $("#salutation").val();
+	var email = $("#email").val();
+	var firstName = $("#firstName").val();
+	var lastName = $("#lastName").val();
+	var personId = $("#personId").val();
+	var person = $("#personForm").serialize();
+	$.ajax({
+		type:'POST',
+		url:'/chapter7/rest/people/save',
+		data:person,
+		dataType:'json',
+		complete: function(data) {
+			$.getJSON('/chapter7/rest/people/list',function(data) {
+				clearAndReAddChildren(data);
+			});
+			$("#salutation").val("");
+			$("#email").val("");
+			$("#firstName").val("");
+			$("#lastName").val("");
+			$("#personId").val("0");
+		}
+	})
+}
+$(document).ready(function() {
+	$.getJSON('/chapter7/rest/people/list',function(data) {
+		clearAndReAddChildren(data);
+		$(".edit").click(function(){
+			var id = $(this).attr('p');
+			$.getJSON('/chapter7/rest/people/find/'+id,function(data) {
+				$("#salutation").val(data.salutation);
+				$("#email").val(data.email);
+				$("#firstName").val(data.firstName);
+				$("#lastName").val(data.lastName);
+				$("#personId").val(data.personId);
+			});
+		});
+	});
+	$("#save").click(function() {
+		save();
+	});
+	$("#clear").click(function() {
+		clear();
+	});
+});
+</script>
+</head>
+<body>
+<div id="peopleListCont">
+<table id="peopleList"></table>
+</div>
+<form action="/chapter7/rest/people/save" method="POST" id="personForm">
+<table>
+	<tr><td>Salutation</td><td><input type="text" name="salutation" id="salutation"/></td>
+	<td>Email</td><td><input type="text" id="email" name="email"/></td>
+	</tr>
+	<tr><td>First Name</td><td><input type="text" id="firstName" name="firstName"/></td>
+	<td>Last Name</td><td><input type="text" id="lastName" name="lastName"/></td>
+	</tr>
+</table>
+<input type="hidden" id="personId" name="personId" value="0"/>
+<input type="Button" id="save" value="Save"/>
+<input type="Button" id="clear" value="Clear"/>
+</form>
+</body>
+</html>

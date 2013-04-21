@@ -1,0 +1,15 @@
+{
+  "people":
+  [
+    {
+      "id": "1",
+      "firstname" : "Bob",
+      "lastname" : "Smith"
+    },
+    {
+      "id": "2",
+      "firstname" : "Jane",
+      "lastname" : "Smith"
+    }
+  ]
+}

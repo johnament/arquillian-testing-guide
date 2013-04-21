@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="TemperatureConverter" resourceRoot="" soapui-version="4.5.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TemperatureConverterServiceSoapBinding" type="wsdl" bindingName="{http://convert.chp6.arquillian.tad.com/}TemperatureConverterServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://thug.net:443/chapter6/TemperatureConverter?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://thug.net:443/chapter6/TemperatureConverter?WSDL"><con:part><con:url>http://thug.net:443/chapter6/TemperatureConverter?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="TemperatureConverterService" targetNamespace="http://convert.chp6.arquillian.tad.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://convert.chp6.arquillian.tad.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://convert.chp6.arquillian.tad.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ConvertToCelsius" type="tns:ConvertToCelsius"/>
+      <xs:element name="ConvertToCelsiusResponse" type="tns:ConvertToCelsiusResponse"/>
+      <xs:element name="ConvertToFarenheit" type="tns:ConvertToFarenheit"/>
+      <xs:element name="ConvertToFarenheitResponse" type="tns:ConvertToFarenheitResponse"/>
+      <xs:complexType name="ConvertToFarenheit">
+        <xs:sequence>
+          <xs:element name="Celsius" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConvertToFarenheitResponse">
+        <xs:sequence>
+          <xs:element name="Farenheit" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConvertToCelsius">
+        <xs:sequence>
+          <xs:element name="Farenheit" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConvertToCelsiusResponse">
+        <xs:sequence>
+          <xs:element name="Celsius" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ConvertToCelsiusResponse">
+    <wsdl:part element="tns:ConvertToCelsiusResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConvertToCelsius">
+    <wsdl:part element="tns:ConvertToCelsius" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConvertToFarenheit">
+    <wsdl:part element="tns:ConvertToFarenheit" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConvertToFarenheitResponse">
+    <wsdl:part element="tns:ConvertToFarenheitResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TemperatureConverter">
+    <wsdl:operation name="ConvertToFarenheit">
+      <wsdl:input message="tns:ConvertToFarenheit" name="ConvertToFarenheit"></wsdl:input>
+      <wsdl:output message="tns:ConvertToFarenheitResponse" name="ConvertToFarenheitResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToCelsius">
+      <wsdl:input message="tns:ConvertToCelsius" name="ConvertToCelsius"></wsdl:input>
+      <wsdl:output message="tns:ConvertToCelsiusResponse" name="ConvertToCelsiusResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TemperatureConverterServiceSoapBinding" type="tns:TemperatureConverter">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConvertToFarenheit">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ConvertToFarenheit">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ConvertToFarenheitResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToCelsius">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="ConvertToCelsius">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ConvertToCelsiusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TemperatureConverterService">
+    <wsdl:port binding="tns:TemperatureConverterServiceSoapBinding" name="TemperatureConverterPort">
+      <soap:address location="http://thug.net:443/chapter6/TemperatureConverter"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://thug.net:443/chapter6/TemperatureConverter</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="ConvertToCelsius" bindingOperationName="ConvertToCelsius" type="Request-Response" outputName="ConvertToCelsiusResponse" inputName="ConvertToCelsius" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://thug.net:443/chapter6/TemperatureConverter</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://convert.chp6.arquillian.tad.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConvertToCelsius>
+         <Farenheit>?</Farenheit>
+      </con:ConvertToCelsius>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://convert.chp6.arquillian.tad.com/TemperatureConverter/ConvertToCelsius"/></con:call></con:operation><con:operation isOneWay="false" action="" name="ConvertToFarenheit" bindingOperationName="ConvertToFarenheit" type="Request-Response" outputName="ConvertToFarenheitResponse" inputName="ConvertToFarenheit" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://thug.net:443/chapter6/TemperatureConverter</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://convert.chp6.arquillian.tad.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConvertToFarenheit>
+         <Celsius>?</Celsius>
+      </con:ConvertToFarenheit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://convert.chp6.arquillian.tad.com/TemperatureConverter/ConvertToFarenheit"/></con:call></con:operation></con:interface><con:testSuite name="TemperatureConverterServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ConvertToCelsius TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="ConvertToCelsius"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TemperatureConverterServiceSoapBinding</con:interface><con:operation>ConvertToCelsius</con:operation><con:request name="ConvertToCelsius"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://thug.net:443/chapter6/TemperatureConverter</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://convert.chp6.arquillian.tad.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConvertToCelsius>
+         <Farenheit>55</Farenheit>
+      </con:ConvertToCelsius>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns2='http://convert.chp6.arquillian.tad.com/';
+declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body/ns2:ConvertToCelsiusResponse/Celsius</path><content>12.777777777777779</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match"><con:configuration/></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://convert.chp6.arquillian.tad.com/TemperatureConverter/ConvertToCelsius" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:tearDownScript>testCase.testStepList.each{
+	log.warn it.testRequest.response.contentAsString;
+}
+</con:tearDownScript><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ConvertToFarenheit TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="ConvertToFarenheit"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TemperatureConverterServiceSoapBinding</con:interface><con:operation>ConvertToFarenheit</con:operation><con:request name="ConvertToFarenheit"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://thug.net:443/chapter6/TemperatureConverter</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://convert.chp6.arquillian.tad.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConvertToFarenheit>
+         <Celsius>15</Celsius>
+      </con:ConvertToFarenheit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace ns2='http://convert.chp6.arquillian.tad.com/';
+declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body/ns2:ConvertToFarenheitResponse/Farenheit</path><content>59.0</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://convert.chp6.arquillian.tad.com/TemperatureConverter/ConvertToFarenheit" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

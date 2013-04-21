@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="sample.component" immediate="true">
+  <implementation class="com.tad.arquillian.chapter9.osgi.WelcomeServiceImpl" />
+  <property name="service.description" value="A Welcoming Service" />
+  <property name="service.vendor" value="TAD" />
+  <service>
+    <provide interface="com.tad.arquillian.chapter9.osgi.WelcomeService" />
+  </service>
+</component>

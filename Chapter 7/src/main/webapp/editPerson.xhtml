@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>People and Address Editor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<f:metadata>
+		<f:viewParam name="personId" value="#{people.personId}" />
+	</f:metadata>
+</h:head>
+<h:body>
+	<h:form id="editPersonForm">
+		<h:panelGrid columns="4">
+			<h:outputLabel for="salutation" value="Salutation" />
+			<h:selectOneMenu id="salutation"
+				value="#{people.selectedPerson.salutation}">
+				<f:selectItem id="item0" itemLabel=" " itemValue=" " />
+				<f:selectItem id="item1" itemLabel="Mr." itemValue="Mr." />
+				<f:selectItem id="item2" itemLabel="Mrs." itemValue="Mrs." />
+				<f:selectItem id="item3" itemLabel="Dr." itemValue="Dr." />
+			</h:selectOneMenu>
+			<h:outputLabel for="email" value="Email" />
+			<h:inputText value="#{people.selectedPerson.email}" id="email" size="75"/>
+			<h:outputLabel for="firstName" value="First Name" />
+			<h:inputText value="#{people.selectedPerson.firstName}" size="75" id="firstName"/>
+			<h:outputLabel for="lastName" value="Last Name" />
+			<h:inputText value="#{people.selectedPerson.lastName}" size="75" id="lastName"/>
+			<h:commandButton action="#{people.savePerson}" value="Save" id="saveButton"/>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
